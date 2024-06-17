@@ -17,7 +17,7 @@
 
     - name: Test html page is installed
       copy:
-        content: "Welcome to the PACKOPS Website!\n"
+        content: "Welcome to the Website!\n"
         dest: /var/www/html/index.html
 
 - name: Test intranet web server and Notify on Telegram
@@ -37,18 +37,18 @@
 
     - name: Notify on Telegram if response code is not 200
       uri:
-        url: https://api.telegram.org/bot5445218179:AAHW6vcIpO_a48NhmRclEIaUCBOwu6ym9Jw/sendMessage
+        url: https://api.telegram.org/bot5442817:AAHW6cIpO_a48NhmRclEIUCBOwu6m9Jw/sendMessage
         method: POST
         body_format: form-urlencoded
         body:
-          chat_id: 96100908
+          chat_id: 91098
           text: "The  Website is not OK - Response Code: {{ result.status }}"
       when: result.status != 200
 
 
     - name: Notify on Telegram if response code is 200
       uri:
-        url: https://api.telegram.org/bot5445218179:AAHW6vcIpO_a48NhmRclEIaUCBOwu6ym9Jw/sendMessage
+        url: https://api.telegram.org/bot545218179:AAHW6cIpO_a48NhmRclEIaUCOwu6y9Jw/sendMessage
         method: POST
         body_format: form-urlencoded
         body:
